@@ -42,7 +42,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
       <Paper className={classes.paper} elevation={6}>
         <Typography variant="h6" align="center">
-          Please Sign In to create your own books and like other's book.
+          Please Sign In to add your own favorite books reviewand to like other's book.
         </Typography>
       </Paper>
     );
@@ -62,7 +62,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <Typography variant="h6">{currentId ? `Editing "${post?.title}"` : 'Create a Book'}</Typography>
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
         <TextField name="message" variant="outlined" label="Message" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
-        <div style={{ padding: '5px 0', width: '94%' }}>
+        {/* <div style={{ padding: '5px 0', width: '94%' }}>
           <ChipInput
             name="tags"
             variant="outlined"
@@ -72,7 +72,8 @@ const Form = ({ currentId, setCurrentId }) => {
             onAdd={(chip) => handleAddChip(chip)}
             onDelete={(chip) => handleDeleteChip(chip)}
           />
-        </div>
+        </div> */}
+         <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
         <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
         <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>

@@ -18,6 +18,7 @@ const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const history = useHistory();
 
+
   const Likes = () => {
     if (post?.likes?.length > 0) {
       return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
@@ -81,6 +82,15 @@ const Post = ({ post, setCurrentId }) => {
             <DeleteIcon fontSize="small" /> &nbsp; Delete
           </Button>
         )}
+        {/* {comments.map((comment) => (
+          <Card fluid key={comment.id}>
+            <Card.Content>
+              <Card.Header>{comment.user}</Card.Header>
+              <Card.Meta>{moment(comment.createdAt).fromNow()}</Card.Meta>
+              <Card.Description>{comment.body}</Card.Description>
+            </Card.Content>
+          </Card>
+        ))} */}
       </CardActions>
     </Card>
   );
