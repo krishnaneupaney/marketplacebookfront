@@ -41,7 +41,7 @@ const Navbar = () => {
     <AppBar className={classes.appBar} position="static" color="inherit">
       <Link to="/" className={classes.brandContainer}>
         <img className={classes.image} src={axcesslogo} alt="icon" height="40px" />
-        <Typography className={classes.heading} variant="primary" align="center">Books</Typography>
+        <Typography className={classes.heading} variant="primary" align="center">Book Reviews </Typography>
       </Link>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
@@ -52,6 +52,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
+          
         )}
       </Toolbar>
     </AppBar>
